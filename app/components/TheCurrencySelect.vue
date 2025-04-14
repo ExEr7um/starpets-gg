@@ -5,9 +5,10 @@ const currencyStore = useCurrencyStore()
 <template>
   <USelect
     v-model="currencyStore.selectedCurrency"
-    class="w-20 uppercase"
+    class="w-24 uppercase"
     :content="{ align: 'end', side: 'bottom' }"
     :items="currencyStore.currencyList"
+    size="lg"
     :ui="{ itemLabel: 'uppercase' }"
   />
 </template>

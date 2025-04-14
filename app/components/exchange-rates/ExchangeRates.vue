@@ -3,9 +3,9 @@ import type { ExchangeRate } from "~/types/currency"
 
 const currencyStore = useCurrencyStore()
 
-const { data: exchangeRates } = await useFetch<ExchangeRate>(
-  "https://status.neuralgeneration.com/api/currency",
-)
+const { data: exchangeRates } = await useFetch<ExchangeRate>("/currency/", {
+  baseURL: "https://status.neuralgeneration.com/api",
+})
 
 const exchangeRatesList = computed(() => {
   return currencyStore.currencyList.filter(

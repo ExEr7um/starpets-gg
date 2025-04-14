@@ -4,5 +4,5 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   experimental: { typedPages: true },
   future: { compatibilityVersion: 4 },
-  modules: ["@nuxt/ui", "nuxt-mcp", "@pinia/nuxt"],
+  modules: ["@nuxt/ui", "@pinia/nuxt"],
 })

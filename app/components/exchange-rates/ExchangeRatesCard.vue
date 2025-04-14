@@ -14,7 +14,7 @@ const currencyStore = useCurrencyStore()
 <template>
   <UCard>
     <h2 class="flex gap-x-1">
-      <span>{{ rate }}</span>
+      <span>{{ rate?.toFixed(2) }}</span>
       <span class="text-neutral-500 uppercase">
         {{ currencyStore.selectedCurrency }}
       </span>
