@@ -1,0 +1,49 @@
+{
+  "name": "starpets-gg",
+  "version": "0.0.0",
+  "private": true,
+  "author": {
+    "name": "Василий Кузин",
+    "email": "work@exer7um.com",
+    "url": "https://github.com/ExEr7um"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "eslint": "eslint --max-warnings=0",
+    "eslint:fix": "eslint --max-warnings=0 --fix",
+    "generate": "nuxt generate",
+    "postinstall": "nuxt prepare",
+    "prettier": "prettier --check --ignore-unknown --no-error-on-unmatched-pattern *",
+    "prettier:write": "prettier --write --ignore-unknown --no-error-on-unmatched-pattern *",
+    "preview": "nuxt preview",
+    "test": "vitest",
+    "typecheck": "nuxt typecheck"
+  },
+  "nano-staged": {
+    "*.{vue,js,jsx,cjs,mjs,ts,json,yaml}": "eslint --cache --fix",
+    "*": "prettier --write --ignore-unknown"
+  },
+  "prettier": "@exer7um/prettier-config",
+  "dependencies": {
+    "@iconify-json/lucide": "1.2.35",
+    "@iconify-json/simple-icons": "1.2.31",
+    "@nuxt/ui": "3.0.2",
+    "nuxt": "3.16.2"
+  },
+  "devDependencies": {
+    "@exer7um/eslint-config": "2.1.1",
+    "@exer7um/prettier-config": "0.6.0",
+    "@nuxt/test-utils": "3.17.2",
+    "@vue/test-utils": "2.4.6",
+    "happy-dom": "17.4.4",
+    "husky": "9.1.7",
+    "nano-staged": "0.8.0",
+    "tailwindcss": "4.1.3",
+    "typescript": "5.8.3",
+    "vitest": "3.1.1",
+    "vue-tsc": "2.2.8"
+  },
+  "packageManager": "pnpm@10.8.1"
+}
