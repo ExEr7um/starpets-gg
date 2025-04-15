@@ -6,12 +6,14 @@ import * as v from "valibot"
 import type { Currency } from "~/types/currency"
 
 const currencyStore = useCurrencyStore()
-
 const { getCurrencyPair, getRate, selectedCurrencies } = await useConversion()
 
+/** Схема валидации */
 const schema = v.object({ fromAmount: v.number(), toAmount: v.number() })
+/** Тип схемы */
 type Schema = InferOutput<typeof schema>
 
+/** Состояние формы */
 const state = reactive<Schema>({
   /** Сумма до конвертации */
   fromAmount: 1,

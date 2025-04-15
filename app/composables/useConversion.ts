@@ -1,7 +1,9 @@
 import type { Currency, CurrencyPair, ExchangeRate } from "~/types/currency"
 
 /**
+ * Функции для конвертации валюты.
  *
+ * @returns Функции для конвертации валюты
  */
 export default async function () {
   const { data: exchangeRates } = await useFetch<ExchangeRate>("/currency/", {
