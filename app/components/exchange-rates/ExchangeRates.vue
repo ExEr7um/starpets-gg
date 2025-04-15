@@ -7,11 +7,11 @@ const { data: exchangeRates } = await useFetch<ExchangeRate>("/currency/", {
   baseURL: "https://status.neuralgeneration.com/api",
 })
 
-const exchangeRatesList = computed(() => {
-  return currencyStore.currencyList.filter(
+const exchangeRatesList = computed(() =>
+  currencyStore.currencyList.filter(
     (currency) => currency !== currencyStore.selectedCurrency,
-  )
-})
+  ),
+)
 </script>
 
 <template>
