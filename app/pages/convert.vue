@@ -5,7 +5,6 @@ import * as v from "valibot"
 
 import type { Currency } from "~/types/currency"
 
-const currencyStore = useCurrencyStore()
 const { getCurrencyPair, getRate, selectedCurrencies } = await useConversion()
 
 /** Схема валидации */
@@ -61,50 +60,23 @@ function selectCurrency(fieldType: "from" | "to", currency: Currency) {
 <template>
   <main class="flex flex-col gap-4">
     <h1>Конвертер валют</h1>
-    <UForm class="grid grid-cols-[auto_1fr] gap-4" :schema :state>
-      <USelect
-        class="w-24 uppercase"
-        :items="
-          currencyStore.currencyList.filter(
-            (currency) => currency !== selectedCurrencies.to,
-          )
-        "
-        :model-value="selectedCurrencies.from"
-        size="lg"
-        :ui="{ itemLabel: 'uppercase' }"
-        @update:model-value="selectCurrency('from', $event)"
+    <UForm class="grid gap-4" :schema :state>
+      <CurrencyInput
+        :amount="state.fromAmount"
+        field-type="from"
+        :other-currency="selectedCurrencies.to"
+        :selected-currency="selectedCurrencies.from"
+        @convert-currency="convertCurrency"
+        @select-currency="selectCurrency"
       />
-      <UFormField name="fromAmount" size="lg">
-        <UInput
-          class="w-full"
-          :min="0"
-          :model-value="state.fromAmount"
-          placeholder="Введите сумму"
-          type="number"
-          @update:model-value="convertCurrency($event as string, 'from')"
-        />
-      </UFormField>
-      <USelect
-        class="w-24 uppercase"
-        :items="
-          currencyStore.currencyList.filter(
-            (currency) => currency !== selectedCurrencies.from,
-          )
-        "
-        :model-value="selectedCurrencies.to"
-        size="lg"
-        :ui="{ itemLabel: 'uppercase' }"
-        @update:model-value="selectCurrency('to', $event)"
+      <CurrencyInput
+        :amount="state.toAmount"
+        field-type="to"
+        :other-currency="selectedCurrencies.from"
+        :selected-currency="selectedCurrencies.to"
+        @convert-currency="convertCurrency"
+        @select-currency="selectCurrency"
       />
-      <UFormField name="toAmount" size="lg">
-        <UInput
-          class="w-full"
-          :model-value="state.toAmount"
-          placeholder="Введите сумму"
-          type="number"
-          @update:model-value="convertCurrency($event as string, 'to')"
-        />
-      </UFormField>
     </UForm>
   </main>
 </template>
