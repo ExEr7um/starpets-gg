@@ -31,7 +31,7 @@
     "@iconify-json/simple-icons": "1.2.31",
     "@nuxt/ui": "3.0.2",
     "@pinia/nuxt": "0.11.0",
-    "nuxt": "3.16.2",
+    "nuxt": "3.19.0",
     "pinia": "3.0.2",
     "valibot": "1.0.0"
   },
